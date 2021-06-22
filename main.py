@@ -125,6 +125,19 @@ def start(bot, update):
 
 	add_to_chat(get_user(update.message.from_user.id), update.message.chat_id)
 
+def help(bot, update):
+	update.message.reply_text('Here are the main commands to use:' +
+							  '/start - starting tipbot.' +
+							  '/register - register with the bot.' +
+							  '/deposit - Generate your deposit wallet.' +
+							  '/balance - check your balance.' +
+							  '/bal - check your balance.' +
+							  '/withdraw- Withdraws your balance from your balance.' +
+							  '/tip - Send tip to individual and registered users.' +
+							  '/soak - Sends rain to active and registered users.')
+
+	add_to_chat(get_user(update.message.from_user.id), update.message.chat_id)	
+
 
 def tip(bot, update):
 	args = update.message.text.split()[1:]
@@ -313,6 +326,7 @@ if __name__ == "__main__":
 	updater = Updater(config['token'])
 
 	updater.dispatcher.add_handler(CommandHandler('start', start))
+	updater.dispatcher.add_handler(CommandHandler('help', help))
 	updater.dispatcher.add_handler(CommandHandler('tip', tip))
 	updater.dispatcher.add_handler(CommandHandler('register', register))
 	updater.dispatcher.add_handler(CommandHandler('balance', balance))
