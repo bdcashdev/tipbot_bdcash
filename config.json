@@ -1,0 +1,14 @@
+{
+  "token": "token:tokenbot",
+  "rpc": {
+    "host": "127.0.0.1",
+    "port": 0000,
+    "user": "username",
+    "password": "pass"
+  },
+  "mongo": {
+    "host": "localhost",
+    "port": 27017,
+    "db": "bdmongo"
+  }
+}
